@@ -4,7 +4,7 @@ const cors = require("cors");
 const app = express();
 
 var corsOptions = {
-  origin: "http://localhost:8081"
+  origin: "*"
 };
 
 app.use(cors(corsOptions));
@@ -16,9 +16,9 @@ app.use(express.urlencoded({ extended: true }));
 const db = require("./models");
 const Role = db.role;
 
-db.sequelize.sync({force: true}).then(() => {
-  console.log('Drop and Resync Db');
-});
+// db.sequelize.sync({force: true}).then(() => {
+//   console.log('Drop and Resync Db');
+// });
 
 app.get("/", (req, res) => {
   res.json({ message: "Welcome to api" });
