@@ -1,3 +1,4 @@
+require('dotenv').config();
 const db = require("../models");
 const config = require("../config/auth.config.js");
 const User = db.user;
@@ -47,18 +48,28 @@ exports.signin = (req, res) => {
       }
 
       const token = jwt.sign({ id: user.id },
-                              config.secret,
+                                process.env.ACCESS_TOKEN_SECRET,
                               {
                                 algorithm: 'HS256',
                                 allowInsecureKeySizes: true,
-                                expiresIn: 86400, // 24 hours
+                                expiresIn: '1h', 
                               });
+
+    //   const refreshToken=jwt.sign({ id: user.id },
+    //                             config.secret,
+    //                             {
+    //                             algorithm: 'HS256',
+    //                             allowInsecureKeySizes: true,
+    //                             expiresIn: '1d', 
+    //                             });
 
         res.status(200).send({
                     id: user.id,
                     username: user.username,
                     status: user.status,
-                    accessToken: token});
+                    accessToken: token
+                });
+        
     })
     .catch(err => {
       res.status(500).send({ message: err.message });
