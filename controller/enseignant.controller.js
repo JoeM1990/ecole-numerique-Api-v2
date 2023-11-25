@@ -1,11 +1,24 @@
 const db = require("../models");
-const User = db.user;
+const Enseignant = db.enseignant;
 
 
+exports.create = (req, res) => {
+    
+    Enseignant.create(req.body)
+      .then(data => {
+        res.send(data);
+      })
+      .catch(err => {
+        res.status(500).send({
+          message:
+            err.message
+        });
+      });
+  };
 
 exports.findAll = (req, res) => {
     
-    User.findAll()
+    Enseignant.findAll()
       .then(data => {
         res.send(data);
       })
@@ -19,7 +32,7 @@ exports.findAll = (req, res) => {
 exports.update = (req, res) => {
     const id = req.params.id;
   
-    User.update(req.body, {
+    Enseignant.update(req.body, {
       where: { id: id }
     })
       .then(num => {
@@ -43,7 +56,7 @@ exports.update = (req, res) => {
 exports.findOne = (req, res) => {
     const id = req.params.id;
   
-    User.findByPk(id)
+    Enseignant.findByPk(id)
       .then(data => {
         if (data) {
           res.send(data);
@@ -63,7 +76,7 @@ exports.findOne = (req, res) => {
   exports.deleteByid = (req, res) => {
     const id = req.params.id;
   
-    User.destroy({
+    Enseignant.destroy({
       where: { id: id }
     })
       .then(num => {
