@@ -2,7 +2,7 @@ require('dotenv').config();
 const db = require("../models");
 const config = require("../config/auth.config.js");
 const User = db.user;
-const Role = db.role;
+
 
 const Op = db.Sequelize.Op;
 
@@ -48,7 +48,7 @@ exports.signin = (req, res) => {
       }
 
       const token = jwt.sign({ id: user.id },
-                                process.env.ACCESS_TOKEN_SECRET,
+                                config.secret,
                               {
                                 algorithm: 'HS256',
                                 allowInsecureKeySizes: true,
