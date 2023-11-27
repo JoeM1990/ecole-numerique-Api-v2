@@ -24,6 +24,7 @@ db.sequelize = sequelize;
 
 db.user = require("../models/user.model.js")(sequelize, Sequelize);
 db.enseignant = require("../models/enseignant.model.js")(sequelize, Sequelize);
+db.eleve = require("../models/eleve.model.js")(sequelize, Sequelize);
 //db.role = require("../models/role.model.js")(sequelize, Sequelize);
 
 // db.role.belongsToMany(db.user, {
