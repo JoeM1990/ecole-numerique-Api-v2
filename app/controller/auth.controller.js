@@ -13,6 +13,8 @@ exports.signup = (req, res) => {
 
   User.create({
     username: req.body.username,
+    email: req.body.email,
+    role: req.body.role,
     password: bcrypt.hashSync(req.body.password, 8),
     status: req.body.status,
   })
@@ -27,7 +29,7 @@ exports.signup = (req, res) => {
 exports.signin = (req, res) => {
   User.findOne({
     where: {
-      username: req.body.username
+      email: req.body.email
     }
   })
     .then(user => {
