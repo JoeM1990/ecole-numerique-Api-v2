@@ -6,12 +6,12 @@ checkDuplicateUsernameOrEmail = (req, res, next) => {
 
   User.findOne({
     where: {
-      username: req.body.username
+      email: req.body.email
     }
   }).then(user => {
     if (user) {
       res.status(400).send({
-        message: "Échoué! Nom d'utilisateur est déjà utilisé!"
+        message: "Échoué! Cette adresse est déjà utilisé!"
       });
       return;
     }
