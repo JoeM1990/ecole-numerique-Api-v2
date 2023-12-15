@@ -22,7 +22,7 @@ exports.signup = (req, res) => {
         res.status(201).send({ message: "User was registered successfully!" });
     })
     .catch(err => {
-      res.status(500).send({ message: err.message });
+       res.status(500).send({ message: err.message });
     });
 };
 
@@ -66,7 +66,6 @@ exports.signin = (req, res) => {
     //                             });
 
         res.status(200).send({
-                    id: user.id,
                     username: user.username,
                     status: user.status,
                     accessToken: token
