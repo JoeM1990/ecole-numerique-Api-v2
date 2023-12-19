@@ -9,6 +9,7 @@ const Op = db.Sequelize.Op;
 var jwt = require("jsonwebtoken");
 var bcrypt = require("bcryptjs");
 
+
 exports.signup = (req, res) => {
 
   User.create({
@@ -22,7 +23,7 @@ exports.signup = (req, res) => {
         res.status(201).send({ message: "User was registered successfully!" });
     })
     .catch(err => {
-      res.status(500).send({ message: err.message });
+       res.status(500).send({ message: err.message });
     });
 };
 
@@ -66,11 +67,14 @@ exports.signin = (req, res) => {
     //                             });
 
         res.status(200).send({
-                    id: user.id,
                     username: user.username,
                     status: user.status,
                     accessToken: token
                 });
+        // res.cookie('authentication',token, {
+        //      maxAge: 2 * 60 * 60 * 60,
+        //       httpOnly: true
+        //       })
         
     })
     .catch(err => {
