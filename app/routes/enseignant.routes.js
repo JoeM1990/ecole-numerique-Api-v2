@@ -13,9 +13,8 @@ module.exports = function(app) {
 
   app.post("/api/enseignant", authJwt.verifyToken, controller.create);
 
-  app.get("/api/enseignant", controller.findAll);
+  app.get("/api/enseignant", authJwt.verifyToken, controller.findAll);
   
-
   app.get("/api/enseignant/:id", authJwt.verifyToken, controller.findOne);
 
   app.put("/api/enseignant/:id", authJwt.verifyToken, controller.update);
