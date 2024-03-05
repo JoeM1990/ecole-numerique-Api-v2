@@ -55,7 +55,7 @@ exports.signin = (req, res) => {
                               {
                                 algorithm: 'HS256',
                                 allowInsecureKeySizes: true,
-                                expiresIn: '1j', 
+                                expiresIn: '6h', 
                               });
 
     //   const refreshToken=jwt.sign({ id: user.id },
