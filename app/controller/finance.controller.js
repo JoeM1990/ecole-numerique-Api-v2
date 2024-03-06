@@ -1,10 +1,10 @@
 const db = require("../models");
-const Presence = db.presence;
+const Finance = db.finance;
 
 
 exports.create = (req, res) => {
     
-    Presence.create(req.body)
+    Finance.create(req.body)
       .then(data => {
         res.send(data);
       })
@@ -18,7 +18,7 @@ exports.create = (req, res) => {
 
 exports.findAll = (req, res) => {
     
-    Presence.findAll()
+    Finance.findAll()
       .then(data => {
         res.send(data);
       })
@@ -32,7 +32,7 @@ exports.findAll = (req, res) => {
 exports.update = (req, res) => {
     const id = req.params.id;
   
-    Presence.update(req.body, {
+    Finance.update(req.body, {
       where: { id: id }
     })
       .then(num => {
@@ -56,7 +56,7 @@ exports.update = (req, res) => {
 exports.findOne = (req, res) => {
     const id = req.params.id;
   
-    Presence.findByPk(id)
+    Finance.findByPk(id)
       .then(data => {
         if (data) {
           res.send(data);
@@ -73,9 +73,9 @@ exports.findOne = (req, res) => {
       });
   };
 
-  exports.findByName = (req, res) => {
+exports.findByName = (req, res) => {
 
-    Presence.findOne({
+    Finance.findOne({
         where: {
           categorie: req.params.categorie
         }
@@ -99,7 +99,7 @@ exports.findOne = (req, res) => {
   exports.deleteByid = (req, res) => {
     const id = req.params.id;
   
-    Presence.destroy({
+    Finance.destroy({
       where: { id: id }
     })
       .then(num => {
