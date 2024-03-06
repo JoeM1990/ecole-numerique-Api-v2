@@ -27,6 +27,8 @@ db.enseignant = require("../models/enseignant.model.js")(sequelize, Sequelize);
 db.eleve = require("../models/eleve.model.js")(sequelize, Sequelize);
 db.personnel = require("../models/personnel.model.js")(sequelize, Sequelize);
 db.presence = require("../models/presence.model.js")(sequelize, Sequelize);
+db.finance = require("../models/finance.model.js")(sequelize, Sequelize);
+
 
 
 module.exports = db;

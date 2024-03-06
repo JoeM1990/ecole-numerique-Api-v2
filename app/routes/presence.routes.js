@@ -17,6 +17,8 @@ module.exports = function(app) {
   
   app.get("/api/presence/:id", authJwt.verifyToken, controller.findOne);
 
+  app.get("/api/presence/:categorie", authJwt.verifyToken, controller.findByName);
+
   app.put("/api/presence/:id", authJwt.verifyToken, controller.update);
 
   app.delete("/api/presence/:id", authJwt.verifyToken, controller.deleteByid);

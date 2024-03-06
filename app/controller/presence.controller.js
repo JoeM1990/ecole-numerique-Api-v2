@@ -73,6 +73,29 @@ exports.findOne = (req, res) => {
       });
   };
 
+  exports.findByName = (req, res) => {
+
+    Presence.findOne({
+        where: {
+          categorie: req.params.categorie
+        }
+      })
+      .then(data => {
+        if (data) {
+          res.send(data);
+        } else {
+          res.status(404).send({
+            message: `Pas d'informations dans votre requette`
+          });
+        }
+      })
+      .catch(err => {
+        res.status(500).send({
+          message: "Erreur" 
+        });
+      });
+  };
+
   exports.deleteByid = (req, res) => {
     const id = req.params.id;
   
