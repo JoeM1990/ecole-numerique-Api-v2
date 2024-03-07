@@ -6,6 +6,9 @@ module.exports = (sequelize, Sequelize) => {
       montant: {
         type: Sequelize.STRING
       },
+      device: {
+        type: Sequelize.STRING
+      },
       motif: {
         type: Sequelize.STRING
       },
