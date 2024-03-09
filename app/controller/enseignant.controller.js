@@ -3,7 +3,7 @@ const Enseignant = db.enseignant;
 
 
 exports.create = (req, res) => {
-    
+
     Enseignant.create(req.body)
       .then(data => {
         res.send(data);
