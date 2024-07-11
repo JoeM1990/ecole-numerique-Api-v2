@@ -58,14 +58,6 @@ exports.signin = (req, res) => {
                                 expiresIn: '6h', 
                               });
 
-    //   const refreshToken=jwt.sign({ id: user.id },
-    //                             config.secret,
-    //                             {
-    //                             algorithm: 'HS256',
-    //                             allowInsecureKeySizes: true,
-    //                             expiresIn: '1d', 
-    //                             });
-
         res.status(200).send({
                     username: user.username,
                     status: user.status,
