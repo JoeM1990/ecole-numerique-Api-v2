@@ -26,25 +26,6 @@ verifyToken = (req, res, next) => {
             });
 };
 
-verifyTokenRoute = (req, res, next) => {
-  let token = req.params.token
-
-  if (!token) {
-    return res.status(403).send({
-      message: "Veuillez fournir votre token"
-    });
-  }
-
-  jwt.verify(token,
-            config.secret,
-            (err, decoded) => {
-              if (err) {
-                return false;
-              }
-              next();
-            });
-};
-
 isAdmin = (req, res, next) => {
   User.findByPk(req.userId).then(user => {
     user.getRoles().then(roles => {
@@ -104,9 +85,9 @@ isModeratorOrAdmin = (req, res, next) => {
 
 const authJwt = {
   verifyToken: verifyToken,
-  // isAdmin: isAdmin,
-  // isModerator: isModerator,
-  // isModeratorOrAdmin: isModeratorOrAdmin,
+  isAdmin: isAdmin,
+  isModerator: isModerator,
+  isModeratorOrAdmin: isModeratorOrAdmin,
   verifyTokenRoute: verifyTokenRoute
 };
 module.exports = authJwt;
