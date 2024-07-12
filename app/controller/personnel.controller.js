@@ -82,7 +82,7 @@ exports.findOne = (req, res) => {
       .then(num => {
         if (num == 1) {
           res.send({
-            message: "Suppression effectuêe"
+            message: "Suppression effectuée"
           });
         } else {
           res.send({
