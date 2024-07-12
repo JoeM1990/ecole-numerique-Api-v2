@@ -63,10 +63,10 @@ exports.signin = (req, res) => {
                     status: user.status,
                     accessToken: token
                 });
-        res.cookie('authentication',token, {
-             maxAge: 2 * 60 * 60 * 60,
-              httpOnly: true
-              })
+        // res.cookie('authentication',token, {
+        //      maxAge: 2 * 60 * 60 * 60,
+        //       httpOnly: true
+        //       })
         
     })
     .catch(err => {
