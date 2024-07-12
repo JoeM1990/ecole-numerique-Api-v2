@@ -42,7 +42,7 @@ exports.update = (req, res) => {
           });
         } else {
           res.send({
-            message: `Pas d'informations dans votre requette`
+            message: `Pas d'informations dans votre requête`
           });
         }
       })
@@ -62,7 +62,7 @@ exports.findOne = (req, res) => {
           res.send(data);
         } else {
           res.status(404).send({
-            message: `Pas d'informations dans votre requette`
+            message: `Pas d'informations dans votre requête`
           });
         }
       })
@@ -85,7 +85,7 @@ exports.findOne = (req, res) => {
           res.send(data);
         } else {
           res.status(404).send({
-            message: `Pas d'informations dans votre requette`
+            message: `Pas d'informations dans votre requête`
           });
         }
       })
@@ -108,7 +108,7 @@ exports.findOne = (req, res) => {
           res.send(data);
         } else {
           res.status(404).send({
-            message: `Pas d'informations dans votre requette`
+            message: `Pas d'informations dans votre requête`
           });
         }
       })
@@ -132,7 +132,7 @@ exports.findOne = (req, res) => {
           });
         } else {
           res.send({
-            message: `Pas d'informations dans votre requette`
+            message: `Pas d'informations dans votre requête`
           });
         }
       })
