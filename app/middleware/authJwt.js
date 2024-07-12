@@ -9,7 +9,7 @@ verifyToken = (req, res, next) => {
 
   if (!token) {
     return res.status(403).send({
-      message: "Veuillez fournir votre token"
+      message: "Jeton Invalide"
     });
   }
 
@@ -18,7 +18,7 @@ verifyToken = (req, res, next) => {
             (err, decoded) => {
               if (err) {
                 return res.status(401).send({
-                  message: "Pas d'acces",
+                  message: "Pas d'accès",
                 });
               }
               req.userId = decoded.id;
